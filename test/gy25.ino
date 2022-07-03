@@ -15,6 +15,7 @@ void gy25_read(){
     buff[counter] = Serial1.read();
     if(counter == 0 && buff[0] != 0xAA) break;
     counter++;       
+    if(counter==8)
     {                                       // kln 8 bar anjm mishe bra gy kln
     counter=0;                 
     if(buff[0]==0xAA && buff[7]==0x55)
