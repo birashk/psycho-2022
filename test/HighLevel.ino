@@ -69,10 +69,15 @@ void main_gamePlay(){
       else spin(false);       
       shift_near();
     }
-    else{
-      v= 200;
+    else if ( ball_distance <75) {
+      v= 160;
       spin ( false );
-      move (ball);
+      shift_far();
+    }
+    else{
+      v= 250;
+      spin ( false );
+      move(ball);
     }
     
   }
@@ -82,23 +87,28 @@ void main_gamePlay(){
   }
 }
 void simple_gamePlay(){
+  spin (false);
   read_all();
   print_all();
   if (  ball_catched) shoot();
   else if(is_ball) {
     out();  
-    if ( ball_distance <50 ){
+    if ( ball_distance < 50 ){
       v=120;
       if (ball <= 2 || ball >=14) spin (true );
-      else spin(false);       
+      else ;       
       shift_near();
     }
-    else{
-      v= 200;
+    else if ( ball_distance < 75) {
+      v= 160;
       spin ( false );
-      move (ball);
+      shift_far();
     }
-    
+    else{
+      v= 250;
+      spin ( false );
+      move(ball);
+    }
   }
   else {
     come_back();
@@ -106,6 +116,37 @@ void simple_gamePlay(){
   }
   
 }
+void goal_keeper(){
+  read_all();
+  print_all();
+  if(shb < 80) {
+    v = 100;
+    int k = (shl - shr);
+    motor(-v + k, -v - k, v - k, v + k);
+  }
+  else if(shb > 150){
+    v = 100;
+    int k = (shl - shr);
+    motor(v + k, v - k, -v - k, -v + k);
+  }
+  else{
+    if( is_ball){
+      
+      if ( ball_distance >50) {
+        v = 190; 
+      }
+        else     v = 250;
+      
+      if(ball == 0)      stop();
+      else if(ball < 8 && shr <140  ) move(4);
+      else if(ball > 8  && shl < 140) move(12);
+      else  stop();
+    }
+    else stop();
+  }
+  }
+  
+
 void shift_near(){
     if(robotName == Gareath){
            if(ball == 0 ) move(ball); 
@@ -127,8 +168,8 @@ void shift_near(){
     }
     else{
       if(ball == 0 ) move(ball); 
-      else if(ball == 1 ) move(ball +1);
-      else if(ball == 2 ) move(ball +1);
+      else if(ball == 1 ) move(ball + 1);
+      else if(ball == 2 ) move(ball + 1);
       else if(ball == 3 ) move(ball + 2);
       else if(ball == 4 ) move(ball + 2);
       else if(ball == 5 ) move(ball + 2);
@@ -143,6 +184,24 @@ void shift_near(){
       else if(ball == 14) move(ball - 1);
       else if(ball == 15) move(ball - 1);
     }
+}
+void shift_far(){
+       if(ball == 0 ) move(ball); 
+  else if(ball == 1 ) move(ball +1 );
+  else if(ball == 2 ) move(ball +1  );
+  else if(ball == 3 ) move(ball + 2);
+  else if(ball == 4 ) move(ball + 2);
+  else if(ball == 5 ) move(ball + 2);
+  else if(ball == 6 ) move(ball + 2);
+  else if(ball == 7 ) move(ball + 2);
+  else if(ball == 8 ) move(ball + 2);
+  else if(ball == 9 ) move(ball - 2);
+  else if(ball == 10) move(ball - 2);
+  else if(ball == 11) move(ball - 2);
+  else if(ball == 12) move(ball - 2);
+  else if(ball == 13) move(ball - 2);
+  else if(ball == 14) move(ball - 1);
+  else if(ball == 15) move(ball - 1);
 }
 void come_back(){
   int k = (shl - shr);

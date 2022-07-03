@@ -34,6 +34,9 @@ void setup() {
 
 void loop() {
 //  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) 
-//  main_gamePlay();
-  simple_gamePlay();
+  //main_gamePlay();
+ // simple_gamePlay();
+ goal_keeper();
+ 
+  
 }
