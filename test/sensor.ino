@@ -68,24 +68,39 @@ void push_button_read(){
   if(digitalRead(PB4) || digitalRead(PB5) || digitalRead(PA15))  {
     digitalWrite(PC13,0);
     if(digitalRead(PB5)){ //Set GY-25
-      Serial1.write(0XA5);
-      Serial1.write(0X55);
+      if(printMode == 3){
+        if(playMode > 0) {
+          playMode--;
+          EEPROM.write(AddressWrite, playMode);
+        }
+      }
+      else{
+        Serial1.write(0XA5);
+        Serial1.write(0X55);
+      }
       while(digitalRead(PB5));
     }
     if(digitalRead(PB4)){
       printMode++;
-      printMode%=3;
+      printMode%=4;
       while(digitalRead(PB4));
     }
     if(digitalRead(PA15)){
-      if(printMode == 2){
+      if     (printMode == 0) shoot();
+      else if(printMode == 1) printBall = !printBall;
+      else if(printMode == 2){
         kaf_f_min = analogRead(PA4);
         kaf_r_min = analogRead(PA5);
         kaf_b_min = analogRead(PA6);
         kaf_l_min = analogRead(PA7);
       }
-      else if(printMode == 1) printBall = !printBall;
-      else shoot();
+      else if(printMode == 3) {
+        if(playMode < 2) {
+          playMode++;
+          EEPROM.write(AddressWrite, playMode);
+        }
+      }
+      
       while(digitalRead(PA15));
     }
   }

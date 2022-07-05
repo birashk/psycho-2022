@@ -12,5 +12,8 @@ void print_all(){
   else if(printMode == 2){
     sharp_and_kaf_print();
   }
+  else if(printMode == 3){
+    print_playModes();
+  }
   display.display();
 }

@@ -40,6 +40,9 @@ void init_all(){
   oled_init();
   gy25_init();
   pixy.init();
+  EEPROM.init();
+  Status = EEPROM.read(AddressWrite, &playMode);
+  if(playMode == 65535 || playMode == 5) playMode = 0;  
 }
 void main_gamePlay(){  // spin + shoot 
   read_all();
@@ -119,8 +122,9 @@ void simple_gamePlay(){
 void goal_keeper(){
   read_all();
   print_all();
-  if( is_ball && ball_distance < 50 ){
-    simple_gamePlay();
+  if (ball_catched) shoot();
+  else if( is_ball && ball_distance < 50 ){
+    shift_near();
   }
   else if(shb < 90) {            //////////// 80 boood 
     v = 100;
