@@ -96,7 +96,7 @@ void fastStop(){
 }
 void waitForBall(){  
   out_cnt = 0;
-  while(is_ball && out_cnt < 60 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){
+  while(is_ball && out_cnt < 60 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){ /// ?
     read_all();
     print_all();
     stop();
@@ -107,51 +107,15 @@ void waitForBall(){
 void out(){
   if( kaf_f || kaf_r || kaf_b || kaf_l){
     v = 130;
-    moveForSeconds((kaf+8)%16, 2);
-    waitForBall();
-  }
-  /*
-  out_cnt = 0;
-  arrived = false;
-  v = 150;
-  // Out Right
-  if(kaf_r &&  shr > 150 ){
-    moveForSeconds(12, 1);
-    while(is_ball && ball<8 && out_cnt < 60){
-      read_all();
-      print_all();
-      if ( ball < 3)  move(0);
-      else if ( ball > 5)  move(8); 
-      else stop();
-//      out_cnt++;
+    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 150) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 150) || ((kaf == 0 || kaf == 8) && (shl > 150 || shr > 150))){
+      moveForSeconds((kaf+8)%16, 2);
+      waitForBall();
     }
   }
-  // Out Left
-  if(kaf_l &&  shl > 150 ){
-    moveForSeconds(4, 1);
-    while(is_ball && ball > 8 && out_cnt < 60){
-      read_all();
-      print_all();
-      if ( ball > 13)  move(0);
-      else if ( ball < 11)  move(8); 
-      else stop();
-//      out_cnt++;
-    }         
-  }
-  // Out Back
-  if(kaf_b){
-    moveForSeconds(0, 2);
-    waitForBall();  
-  }
-  // Out Forward
-  if(kaf_f){
-    moveForSeconds(8, 2);
-    waitForBall();  
-  }
-   */
 }    
 void shoot(){
-  stop();
+  //stop();
+  move (0);
   digitalWrite(PC15,1);
   delay (300);
   digitalWrite(PC15,0);

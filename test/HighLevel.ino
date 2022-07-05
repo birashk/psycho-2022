@@ -41,7 +41,7 @@ void init_all(){
   gy25_init();
   pixy.init();
 }
-void main_gamePlay(){
+void main_gamePlay(){  // spin + shoot 
   read_all();
   print_all();
   if (  ball_catched){
@@ -119,12 +119,15 @@ void simple_gamePlay(){
 void goal_keeper(){
   read_all();
   print_all();
-  if(shb < 80) {
+  if( is_ball && ball_distance < 50 ){
+    simple_gamePlay();
+  }
+  else if(shb < 90) {            //////////// 80 boood 
     v = 100;
     int k = (shl - shr);
     motor(-v + k, -v - k, v - k, v + k);
   }
-  else if(shb > 150){
+  else if(shb > 170){      // 150 bood 
     v = 100;
     int k = (shl - shr);
     motor(v + k, v - k, -v - k, -v + k);
@@ -132,39 +135,58 @@ void goal_keeper(){
   else{
     if( is_ball){
       
-      if ( ball_distance >50) {
-        v = 190; 
+      if ( ball_distance >50) {  /////////// >50 bood 
+        v = 200; 
+        spin (false );
       }
-        else     v = 250;
+      else    {
+        spin ( true );
+        v = 250;
+      }
+      int angle = ball_angle;
+      if(angle > 180) angle -= 360;
+      angle *= 4;
+      if ( angle >200 ) angle = 200;
+      if ( angle < -200 ) angle = -200;
       
-      if(ball == 0)      stop();
-      else if(ball < 8 && shr <140  ) move(4);
-      else if(ball > 8  && shl < 140) move(12);
-      else  stop();
+      if     ( ball > 4 && ball < 8)   shift_near(); 
+      else if( ball < 12 && ball >= 8) shift_near();
+      else if(shr < 150 && angle > 0)  motor(angle, -angle, -angle, angle);
+      else if(shl < 150 && angle < 0)  motor(angle, -angle, -angle, angle);
+      else {    
+        stop();
+        spin (false ); 
+      }   
     }
-    else stop();
+    else {     
+//      if(crazy_cnt < 20)      move(4);
+//      else if(crazy_cnt < 40) move(12);
+//      else crazy_cnt = 0;
+//      crazy_cnt++;
+      stop(); 
+      spin(false);
+    }
   }
-  }
-  
+}
 
 void shift_near(){
     if(robotName == Gareath){
            if(ball == 0 ) move(ball); 
-      else if(ball == 1 ) move(ball);
+      else if(ball == 1 ) move(ball + 1 );
       else if(ball == 2 ) move(ball + 1);
       else if(ball == 3 ) move(ball + 2);
       else if(ball == 4 ) move(ball + 2);
       else if(ball == 5 ) move(ball + 2);
       else if(ball == 6 ) move(ball + 3);
-      else if(ball == 7 ) move(ball + 3);
-      else if(ball == 8 ) move(ball + 3);
-      else if(ball == 9 ) move(ball - 3);
+      else if(ball == 7 ) move(ball + 4);
+      else if(ball == 8 ) move(ball + 4);
+      else if(ball == 9 ) move(ball - 4);
       else if(ball == 10) move(ball - 3);
       else if(ball == 11) move(ball - 2);
       else if(ball == 12) move(ball - 2);
       else if(ball == 13) move(ball - 2);
       else if(ball == 14) move(ball - 1);
-      else if(ball == 15) move(ball);
+      else if(ball == 15) move(ball - 1);
     }
     else{
       if(ball == 0 ) move(ball); 
@@ -174,9 +196,9 @@ void shift_near(){
       else if(ball == 4 ) move(ball + 2);
       else if(ball == 5 ) move(ball + 2);
       else if(ball == 6 ) move(ball + 3);
-      else if(ball == 7 ) move(ball + 3);
-      else if(ball == 8 ) move(ball + 3);
-      else if(ball == 9 ) move(ball - 3);
+      else if(ball == 7 ) move(ball + 4);
+      else if(ball == 8 ) move(ball + 4);
+      else if(ball == 9 ) move(ball - 4);
       else if(ball == 10) move(ball - 3);
       else if(ball == 11) move(ball - 2);
       else if(ball == 12) move(ball - 2);

@@ -6,7 +6,7 @@ Adafruit_SH1106 display(-1);
 #include <math.h>
 #define Gareath 0
 #define GareathE 1
-int robotName = GareathE;
+int robotName = Gareath;
 uint16_t blocks;
 int sensor[7];
 int buff[8];
@@ -14,7 +14,7 @@ int counter = 0;
 int GY;
 int cx1,cy1,cx2,cy2;
 int bx,by;
-int v = 150;
+int v = 250;
 int ball_x, ball_y, ball_distance, ball_angle, ball_direction, ball;
 int goal_x, goal_y, goal_distance, goal_angle, goal_direction, goal;
 int shb, shr, shl, shf;
@@ -23,10 +23,11 @@ int ROBOTX, ROBOTY;
 bool is_ball, is_goal;
 bool kaf_f, kaf_r, kaf_b, kaf_l;
 int kaf_f_min, kaf_r_min, kaf_b_min, kaf_l_min;
-int out_cnt, kaf;
+int out_cnt, kaf;                   ////// kaf mal out bella bella 
 bool arrived = false;
 bool ball_catched;
 bool printBall = true;
+int crazy_cnt = 0;
 void setup() {
   set_robotXY();
   init_all();
@@ -34,9 +35,10 @@ void setup() {
 
 void loop() {
 //  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) 
-  //main_gamePlay();
+  main_gamePlay();
  // simple_gamePlay();
- goal_keeper();
+// goal_keeper();
+// move (4);
  
   
 }
