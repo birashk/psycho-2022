@@ -116,7 +116,7 @@ void out(){
 void shoot(){
   //stop();
   move (0);
-//  digitalWrite(PC15,1);
+  digitalWrite(PC15,1);
   delay (300);
   digitalWrite(PC15,0);
   delay (300);
