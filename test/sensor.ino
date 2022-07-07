@@ -16,27 +16,27 @@ void sensor_read(){
   sensor[5] -= kaf_r_min;
   sensor[6] -= kaf_b_min;
   sensor[7] -= kaf_l_min;
-  if(sensor[4] > 100) kaf_f = true;
-  else               kaf_f = false;
-  if(sensor[5] > 100) kaf_r = true;
-  else               kaf_r = false;
-  if(sensor[6] > 100) kaf_b = true;
-  else               kaf_b = false;
-  if(sensor[7] > 100) kaf_l = true;
-  else               kaf_l = false;
+  if(sensor[4] > 100) kaf_f = true ;
+  else                kaf_f = false;
+  if(sensor[5] > 100) kaf_r = true ;
+  else                kaf_r = false;
+  if(sensor[6] > 100) kaf_b = true ;
+  else                kaf_b = false;
+  if(sensor[7] > 100) kaf_l = true ;
+  else                kaf_l = false;
   if ( sensor [3]>500)
   ball_catched = true;
   else 
   ball_catched = false ;
   
-       if(kaf_f && !kaf_r && !kaf_b && !kaf_l) kaf =  0;
-  else if(kaf_f &&  kaf_r && !kaf_b && !kaf_l) kaf =  2;
-  else if(!kaf_f && kaf_r && !kaf_b && !kaf_l) kaf =  4;
-  else if(!kaf_f && kaf_r &&  kaf_b && !kaf_l) kaf =  6;
-  else if(!kaf_f && !kaf_r && kaf_b && !kaf_l) kaf =  8;
-  else if(!kaf_f && !kaf_r && kaf_b && kaf_l)  kaf = 10;
-  else if(!kaf_f && !kaf_r && !kaf_b && kaf_l) kaf = 12;
-  else if(kaf_f && !kaf_r && !kaf_b && kaf_l)  kaf = 14;
+       if(kaf_f  && !kaf_r && !kaf_b && !kaf_l) kaf =  0;
+  else if(kaf_f  &&  kaf_r && !kaf_b && !kaf_l) kaf =  2;
+  else if(!kaf_f && kaf_r &&  !kaf_b && !kaf_l) kaf =  4;
+  else if(!kaf_f && kaf_r &&  kaf_b  && !kaf_l) kaf =  6;
+  else if(!kaf_f && !kaf_r && kaf_b  && !kaf_l) kaf =  8;
+  else if(!kaf_f && !kaf_r && kaf_b  && kaf_l ) kaf = 10;
+  else if(!kaf_f && !kaf_r && !kaf_b && kaf_l ) kaf = 12;
+  else if(kaf_f  && !kaf_r && !kaf_b && kaf_l ) kaf = 14;
 
 }
 void sensor_print(){

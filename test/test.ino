@@ -15,7 +15,7 @@ int counter = 0;
 int GY;
 int cx1,cy1,cx2,cy2;
 int bx,by;
-int v = 50;
+int v = 130;
 int ball_x, ball_y, ball_distance, ball_angle, ball_direction, ball;
 int goal_x, goal_y, goal_distance, goal_angle, goal_direction, goal;
 int shb, shr, shl, shf;
@@ -43,4 +43,5 @@ void loop() {
   if(playMode == 0)      main_gamePlay();
   else if(playMode == 1) simple_gamePlay();
   else if(playMode == 2) goal_keeper();
+ // move (8);
 }

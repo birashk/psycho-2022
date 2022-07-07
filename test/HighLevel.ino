@@ -78,7 +78,7 @@ void main_gamePlay(){  // spin + shoot
       shift_far();
     }
     else{
-      v= 250;
+      v= 200;
       spin ( false );
       move(ball);
     }
@@ -166,7 +166,7 @@ void goal_keeper(){
 //      if(crazy_cnt < 20)      move(4);
 //      else if(crazy_cnt < 40) move(12);
 //      else crazy_cnt = 0;
-//      crazy_cnt++;
+//      crazy_cnt++;             /////////////////////////////////
       stop(); 
       spin(false);
     }

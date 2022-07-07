@@ -10,8 +10,15 @@ void motor(int L1, int L2, int R2, int R1)
     
   }
   int GY2 = GY;
-  if(GY2 < 20 && GY2 > -20) GY2 *= 1;
-  else GY2 /= 2; 
+  if(robotName == GareathE){
+   if(GY2 < 20 && GY2 > -20) GY2 *= 1;
+  else GY2 /= 1; ///////////////2
+  }
+ 
+  else {
+  if(GY2 < 30 && GY2 > -30) GY2 *= 1;
+  else  GY2 /= 2; 
+  }
   L1 += GY2;
   L2 += GY2;
   R1 += GY2;
@@ -106,8 +113,8 @@ void waitForBall(){
 }
 void out(){
   if( kaf_f || kaf_r || kaf_b || kaf_l){
-    v = 130;
-    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 150) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 150) || ((kaf == 0 || kaf == 8) && (shl > 150 || shr > 150))){
+    v = 100;
+    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 130) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 130) || ((kaf == 0 || kaf == 8) && (shl > 150 || shr > 150))){
       moveForSeconds((kaf+8)%16, 2);
       waitForBall();
     }
