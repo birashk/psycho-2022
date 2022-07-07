@@ -176,7 +176,7 @@ void goal_keeper(){
 void shift_near(){
     if(robotName == Gareath){
            if(ball == 0 ) move(ball); 
-      else if(ball == 1 ) move(ball + 1 );
+      else if(ball == 1 ) move(ball + 1);
       else if(ball == 2 ) move(ball + 1);
       else if(ball == 3 ) move(ball + 2);
       else if(ball == 4 ) move(ball + 2);
@@ -194,7 +194,7 @@ void shift_near(){
     }
     else{
       if(ball == 0 ) move(ball); 
-      else if(ball == 1 ) move(ball + 1);
+      else if(ball == 1 ) move(ball );
       else if(ball == 2 ) move(ball + 1);
       else if(ball == 3 ) move(ball + 2);
       else if(ball == 4 ) move(ball + 2);
@@ -208,7 +208,7 @@ void shift_near(){
       else if(ball == 12) move(ball - 2);
       else if(ball == 13) move(ball - 2);
       else if(ball == 14) move(ball - 1);
-      else if(ball == 15) move(ball - 1);
+      else if(ball == 15) move(ball );
     }
 }
 void shift_far(){
