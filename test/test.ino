@@ -39,9 +39,9 @@ void setup() {
 }
 
 void loop() {
-//  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) 
+//  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) ke dig nmikhad 
   if(playMode == 0)      main_gamePlay();
   else if(playMode == 1) simple_gamePlay();
   else if(playMode == 2) goal_keeper();
- // move (8);
+ // move (8); // serfan bra test 
 }

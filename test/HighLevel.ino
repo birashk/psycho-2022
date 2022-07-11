@@ -35,16 +35,16 @@ void init_all(){
   kaf_f_min = analogRead(PA4);
   kaf_r_min = analogRead(PA5);
   kaf_b_min = analogRead(PA6);
-  kaf_l_min = analogRead(PA7);
+  kaf_l_min = analogRead(PA7);  // in hmon sensoraye kaf robot 
   motor(0,0,0,0);
   oled_init();
   gy25_init();
   pixy.init();
   EEPROM.init();
-  Status = EEPROM.read(AddressWrite, &playMode);
+  Status = EEPROM.read(AddressWrite, &playMode); //// eeprom bra hafze boland modatt
   if(playMode == 65535 || playMode == 5) playMode = 0;  
 }
-void main_gamePlay(){  // spin + shoot 
+void main_gamePlay(){  // spin + shoot mohajem ke tarjihan sefide 
   read_all();
   print_all();
   if (  ball_catched){
@@ -64,7 +64,7 @@ void main_gamePlay(){  // spin + shoot
       }
       
     }
-  else if(is_ball) {    // ball shmare toop 
+  else if(is_ball) {    // ball shomare toop 
    out();  
     if ( ball_distance <50 ){
       v=120;
@@ -89,7 +89,7 @@ void main_gamePlay(){  // spin + shoot
     out();
   }
 }
-void simple_gamePlay(){
+void simple_gamePlay(){    // harja did va gft toopo shoot 
   spin (false);
   read_all();
   print_all();
