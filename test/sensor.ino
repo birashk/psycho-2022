@@ -89,7 +89,7 @@ void push_button_read(){
       if     (printMode == 0)  {
      move (0);
     digitalWrite(PC15,1);6999
-    delay (50);666666666666
+    delay (50);//666666666666
     digitalWrite(PC15,0);
     delay (300);
         //shoot();
