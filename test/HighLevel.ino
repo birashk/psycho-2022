@@ -35,23 +35,23 @@ void init_all(){
   kaf_f_min = analogRead(PA4);
   kaf_r_min = analogRead(PA5);
   kaf_b_min = analogRead(PA6);
-  kaf_l_min = analogRead(PA7);  // in hmon sensoraye kaf robot 
+  kaf_l_min = analogRead(PA7);
   motor(0,0,0,0);
   oled_init();
   gy25_init();
   pixy.init();
   EEPROM.init();
-  Status = EEPROM.read(AddressWrite, &playMode); //// eeprom bra hafze boland modatt
+  Status = EEPROM.read(AddressWrite, &playMode);
   if(playMode == 65535 || playMode == 5) playMode = 0;  
 }
-void main_gamePlay(){  // spin + shoot mohajem ke tarjihan sefide 
+void main_gamePlay(){  // spin + shoot 
   read_all();
   print_all();
   if (  ball_catched){
       spin (true);
       v= 80;
       if(!is_goal) {
-        v = 200;
+        v = 150; //////200
         move(0);
       }
       else if( (goal_distance > 120 && robotName == GareathE) || (goal_distance > 110 && robotName == Gareath)) move(goal);
@@ -64,7 +64,7 @@ void main_gamePlay(){  // spin + shoot mohajem ke tarjihan sefide
       }
       
     }
-  else if(is_ball) {    // ball shomare toop 
+  else if(is_ball) {    // ball shmare toop 
    out();  
     if ( ball_distance <50 ){
       v=120;
@@ -73,7 +73,7 @@ void main_gamePlay(){  // spin + shoot mohajem ke tarjihan sefide
       shift_near();
     }
     else if ( ball_distance <75) {
-      v= 160;
+      v= 140;     // 160
       spin ( false );
       shift_far();
     }
@@ -89,7 +89,7 @@ void main_gamePlay(){  // spin + shoot mohajem ke tarjihan sefide
     out();
   }
 }
-void simple_gamePlay(){    // harja did va gft toopo shoot 
+void simple_gamePlay(){
   spin (false);
   read_all();
   print_all();
@@ -172,7 +172,6 @@ void goal_keeper(){
     }
   }
 }
-
 void shift_near(){
     if(robotName == Gareath){
            if(ball == 0 ) move(ball); 

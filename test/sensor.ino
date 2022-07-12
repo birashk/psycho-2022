@@ -86,7 +86,14 @@ void push_button_read(){
       while(digitalRead(PB4));
     }
     if(digitalRead(PA15)){
-      if     (printMode == 0) shoot();
+      if     (printMode == 0)  {
+     move (0);
+    digitalWrite(PC15,1);6999
+    delay (50);666666666666
+    digitalWrite(PC15,0);
+    delay (300);
+        //shoot();
+      }
       else if(printMode == 1) printBall = !printBall;
       else if(printMode == 2){
         kaf_f_min = analogRead(PA4);

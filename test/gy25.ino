@@ -7,6 +7,7 @@ void gy25_init(){
   Serial1.write(0XA5);
   Serial1.write(0X51);
 }
+////////////// wellllll2
 
 void gy25_read(){
   Serial1.write(0XA5);

@@ -6,7 +6,7 @@ PixyI2C pixy;
 Adafruit_SH1106 display(-1);
 #include <math.h>
 #define Gareath 0
-#define GareathE 1
+#define GareathE 1 
 int robotName = GareathE;
 uint16_t blocks;
 int sensor[7];
@@ -39,9 +39,9 @@ void setup() {
 }
 
 void loop() {
-//  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) ke dig nmikhad 
+//  Yeki az in dota uncomment mishe (Joftesho ba ham nazari!!!) 
   if(playMode == 0)      main_gamePlay();
   else if(playMode == 1) simple_gamePlay();
   else if(playMode == 2) goal_keeper();
- // move (8); // serfan bra test 
+ // move (8);
 }
