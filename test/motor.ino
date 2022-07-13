@@ -107,8 +107,8 @@ void waitForBall(){
 }
 void out(){
   if( kaf_f || kaf_r || kaf_b || kaf_l){
-    v = 100;
-    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 150) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 150) || ((kaf == 0 || kaf == 8) && (shl > 150 || shr > 150))){
+    v = 80;
+    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 150) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 150) || ((kaf == 0 || kaf == 8) && (shl > 180 || shr > 180))){
       moveForSeconds((kaf+8)%16, 2);
       waitForBall();
     }

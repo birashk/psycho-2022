@@ -87,12 +87,12 @@ void push_button_read(){
     }
     if(digitalRead(PA15)){
       if     (printMode == 0)  {
-     move (0);
-    digitalWrite(PC15,1);6999
-    delay (50);//666666666666
-    digitalWrite(PC15,0);
-    delay (300);
-        //shoot();
+//     move (0);
+//    digitalWrite(PC15,1);
+//    delay (50);                                                                      
+//    digitalWrite(PC15,0);
+//    delay (300);
+       shoot();
       }
       else if(printMode == 1) printBall = !printBall;
       else if(printMode == 2){

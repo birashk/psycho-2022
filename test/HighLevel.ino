@@ -73,12 +73,12 @@ void main_gamePlay(){  // spin + shoot
       shift_near();
     }
     else if ( ball_distance <75) {
-      v= 140;     // 160
+      v= 130;     // 160
       spin ( false );
       shift_far();
     }
     else{
-      v= 200;
+      v= 170;
       spin ( false );
       move(ball);
     }
@@ -237,11 +237,11 @@ void come_back(){
 }
 void set_robotXY(){
   if(robotName == Gareath){
-    ROBOTX = 162;
-    ROBOTY = 108;
+    ROBOTX = 167; // 162
+    ROBOTY = 110; // 108
   }
   else{
-    ROBOTX = 180;
-    ROBOTY = 97;
+    ROBOTX = 185; //180
+    ROBOTY = 100;// 97
   }
 }

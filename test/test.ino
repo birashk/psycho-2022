@@ -7,7 +7,7 @@ Adafruit_SH1106 display(-1);
 #include <math.h>
 #define Gareath 0
 #define GareathE 1 
-int robotName = GareathE;
+int robotName = Gareath;
 uint16_t blocks;
 int sensor[7];
 int buff[8];
