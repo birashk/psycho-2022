@@ -86,7 +86,7 @@ void stop(){
   motor(0,0,0,0);
 }
 void moveForSeconds(int direction, int seconds){
-  for(int j=0; j<seconds*8; j++){
+  for(int j=0; j<seconds; j++){
     read_all();
     print_all();
     move(direction);
@@ -96,8 +96,8 @@ void fastStop(){
   motor(GY, GY, GY, GY);
 }
 void waitForBall(){  
-  out_cnt = 0;
-  while(is_ball && out_cnt < 60 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){ /// ?
+  out_cnt = 0;   // har chi bishtar bishtar mimone to halghe out ( out cnt)
+  while(out_cnt < 150 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){ 
     read_all();
     print_all();
     stop();
@@ -106,12 +106,12 @@ void waitForBall(){
   }
 }
 void out(){
-  if( kaf_f || kaf_r || kaf_b || kaf_l){
-    v = 80;
-    if((kaf > 1 && kaf < 7 && shl < 130 && shr > 150) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 150) || ((kaf == 0 || kaf == 8) && (shl > 180 || shr > 180))){
-      moveForSeconds((kaf+8)%16, 2);
+  if( kaf_f || (kaf_r && shr >170) || kaf_b || (kaf_l && shl >170)){
+    v = 100;
+   // if((kaf > 1 && kaf < 7 && shl < 130 && shr > 170) || (kaf > 9 && kaf < 15 && shr < 130 && shl > 170) || ((kaf == 0 || kaf == 8) &&  ( shl > 150 || shr > 150))){//( shb < 220 ||shb > 220))){ //( shl > 180 || shr > 180))){
+      moveForSeconds((kaf+8)%16, 20); // 20 bre in k ch ghad kharej she 
       waitForBall();
-    }
+  //  }
   }
 }     //////////////////////// wellllllllllll
 void shoot(){

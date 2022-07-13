@@ -16,13 +16,13 @@ void sensor_read(){
   sensor[5] -= kaf_r_min;
   sensor[6] -= kaf_b_min;
   sensor[7] -= kaf_l_min;
-  if(sensor[4] > 100) kaf_f = true ;
+  if(sensor[4] > 50) kaf_f = true ;
   else                kaf_f = false;
-  if(sensor[5] > 100) kaf_r = true ;
+  if(sensor[5] > 50) kaf_r = true ;
   else                kaf_r = false;
-  if(sensor[6] > 100) kaf_b = true ;
+  if(sensor[6] > 50) kaf_b = true ;
   else                kaf_b = false;
-  if(sensor[7] > 100) kaf_l = true ;
+  if(sensor[7] > 50) kaf_l = true ;
   else                kaf_l = false;
   if ( sensor [3]>500)
   ball_catched = true;
