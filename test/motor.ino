@@ -97,7 +97,7 @@ void fastStop(){
 }
 void waitForBall(){  
   out_cnt = 0;   // har chi bishtar bishtar mimone to halghe out ( out cnt)
-  while(out_cnt < 150 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){ 
+  while(out_cnt < 140 && ball <= (kaf+3)%16 && ball >= (kaf-3)%16){ 
     read_all();
     print_all();
     stop();
@@ -118,7 +118,7 @@ void shoot(){
   //stop();
   move (0);
   digitalWrite(PC15,1);
-  delay (100);
+  delay (30); //// 100;
   digitalWrite(PC15,0);
   delay (300);
 }

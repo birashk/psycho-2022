@@ -66,13 +66,13 @@ void main_gamePlay(){  // spin + shoot
     }
   else if(is_ball) {    // ball shmare toop 
    out();  
-    if ( ball_distance <50 ){
-      v=120;
+    if ( ball_distance < 55 ){ // 50
+      v=110; ////// 120
       if (ball <= 2 || ball >=14) spin (true );
       else spin(false);       
       shift_near();
     }
-    else if ( ball_distance <75) {
+    else if ( ball_distance <80) { //75
       v= 130;     // 160
       spin ( false );
       shift_far();
